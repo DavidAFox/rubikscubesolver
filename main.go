@@ -14,6 +14,7 @@ import (
 )
 
 var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
+var depth = flag.Int("depth", 6, "specify the depth to use breadth-first seach")
 
 func main() {
 	flag.Parse()
@@ -53,8 +54,8 @@ func main() {
 	}
 	cf := combined.NewFactory()
 	r := rubikscuberunner.NewOfficialRunner(c)
-	//	r.Run("R U' B' L F R' U2 F2 L' D R U L' R U'")
-	s := combined.NewSolver(c.String(), cf, 6)
+	//	r.Run("R U' B' L F R' U2 F2 L' D R U L'")
+	s := combined.NewSolver(c.String(), cf, *depth)
 	startTime := time.Now()
 	solution := s.Solve()
 	runtime := time.Since(startTime)
