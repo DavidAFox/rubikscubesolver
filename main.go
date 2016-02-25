@@ -63,4 +63,5 @@ func main() {
 	fmt.Println(solution)
 	fmt.Println("Time: ", runtime)
 	fmt.Println("Solved: ", c.Solved())
+
 }
